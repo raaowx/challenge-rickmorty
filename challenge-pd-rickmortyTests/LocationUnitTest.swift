@@ -75,4 +75,59 @@ class LocationUnitTest: XCTestCase {
     decoder.dateDecodingStrategy = .formatted(Location.TimestampFormatter)
     XCTAssertThrowsError(try decoder.decode(Location.self, from: locationData))
   }
+
+  func testCompleteJsonCreatesArray() {
+    let locationStr = """
+      [
+        {
+          "id": 3,
+          "name": "Citadel of Ricks",
+          "type": "Space station",
+          "dimension": "unknown",
+          "residents": [
+            "https://rickandmortyapi.com/api/character/8",
+            "https://rickandmortyapi.com/api/character/14",
+          ],
+          "url": "https://rickandmortyapi.com/api/location/3",
+          "created": "2017-11-10T13:08:13.191Z"
+        },
+        {
+          "id": 4,
+          "name": "Worldender's lair",
+          "type": "Planet",
+          "dimension": "unknown",
+          "residents": [
+            "https://rickandmortyapi.com/api/character/10",
+            "https://rickandmortyapi.com/api/character/81",
+            "https://rickandmortyapi.com/api/character/208"
+          ],
+          "url": "https://rickandmortyapi.com/api/location/4",
+          "created": "2017-11-10T13:08:20.569Z"
+        }
+      ]
+      """
+    guard let locationData = locationStr.data(using: .utf8) else { return }
+    let decoder = JSONDecoder()
+    decoder.dateDecodingStrategy = .formatted(Location.TimestampFormatter)
+    XCTAssertNotNil(try decoder.decode([Location].self, from: locationData))
+  }
+
+  func testMinimalJsonCreatesArray() {
+    let locationStr = """
+      [
+        {
+          "name": "Citadel of Ricks",
+          "url": "https://rickandmortyapi.com/api/location/3"
+        },
+        {
+          "name": "Worldender's lair",
+          "url": "https://rickandmortyapi.com/api/location/4"
+        }
+      ]
+      """
+    guard let locationData = locationStr.data(using: .utf8) else { return }
+    let decoder = JSONDecoder()
+    decoder.dateDecodingStrategy = .formatted(Location.TimestampFormatter)
+    XCTAssertNotNil(try decoder.decode([Location].self, from: locationData))
+  }
 }
