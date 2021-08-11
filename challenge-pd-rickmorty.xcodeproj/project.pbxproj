@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,13 @@
 		59472DE526C37F0F00670DA4 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59472DE426C37F0F00670DA4 /* Location.swift */; };
 		59472DE626C37F0F00670DA4 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59472DE426C37F0F00670DA4 /* Location.swift */; };
 		59472DE926C41C0C00670DA4 /* LocationUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59472DE726C41C0C00670DA4 /* LocationUnitTest.swift */; };
+		597F208E26C42482004F82AD /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597F208D26C42482004F82AD /* APIManager.swift */; };
+		597F209026C42522004F82AD /* CharacterAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597F208F26C42522004F82AD /* CharacterAPIManager.swift */; };
+		597F209226C4352D004F82AD /* LocationAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597F209126C4352D004F82AD /* LocationAPIManager.swift */; };
+		597F209426C43944004F82AD /* AssetsAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597F209326C43944004F82AD /* AssetsAPIManager.swift */; };
+		83532F8A1BD63002400A5752 /* Pods_challenge_pd_rickmortyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE190401859333F9A784AF2B /* Pods_challenge_pd_rickmortyTests.framework */; };
+		E6DCA23222E1C43CB4418980 /* Pods_challenge_pd_rickmorty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F584B2F2B942D8CFAD3E8F8 /* Pods_challenge_pd_rickmorty.framework */; };
+		F2E41A56BBC626BF99BEA836 /* Pods_challenge_pd_rickmorty_challenge_pd_rickmortyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 858164A8493A47030F533886 /* Pods_challenge_pd_rickmorty_challenge_pd_rickmortyUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +47,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		015F2003A20BFA741F1DC070 /* Pods-challenge-pd-rickmorty-challenge-pd-rickmortyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-challenge-pd-rickmorty-challenge-pd-rickmortyUITests.release.xcconfig"; path = "Target Support Files/Pods-challenge-pd-rickmorty-challenge-pd-rickmortyUITests/Pods-challenge-pd-rickmorty-challenge-pd-rickmortyUITests.release.xcconfig"; sourceTree = "<group>"; };
+		19D922D33D565EA30E1FC9A7 /* Pods-challenge-pd-rickmorty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-challenge-pd-rickmorty.debug.xcconfig"; path = "Target Support Files/Pods-challenge-pd-rickmorty/Pods-challenge-pd-rickmorty.debug.xcconfig"; sourceTree = "<group>"; };
+		25C98D0CEAF681D53239DB1C /* Pods-challenge-pd-rickmorty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-challenge-pd-rickmorty.release.xcconfig"; path = "Target Support Files/Pods-challenge-pd-rickmorty/Pods-challenge-pd-rickmorty.release.xcconfig"; sourceTree = "<group>"; };
+		334ECCBE7A95E9E31510B886 /* Pods-challenge-pd-rickmortyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-challenge-pd-rickmortyTests.debug.xcconfig"; path = "Target Support Files/Pods-challenge-pd-rickmortyTests/Pods-challenge-pd-rickmortyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3F584B2F2B942D8CFAD3E8F8 /* Pods_challenge_pd_rickmorty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_challenge_pd_rickmorty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59472DAB26C29CCC00670DA4 /* challenge-pd-rickmorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "challenge-pd-rickmorty.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		59472DAE26C29CCC00670DA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59472DB026C29CCC00670DA4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +69,14 @@
 		59472DE126C37BA100670DA4 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		59472DE426C37F0F00670DA4 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		59472DE726C41C0C00670DA4 /* LocationUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUnitTest.swift; sourceTree = "<group>"; };
+		597F208D26C42482004F82AD /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		597F208F26C42522004F82AD /* CharacterAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAPIManager.swift; sourceTree = "<group>"; };
+		597F209126C4352D004F82AD /* LocationAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAPIManager.swift; sourceTree = "<group>"; };
+		597F209326C43944004F82AD /* AssetsAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsAPIManager.swift; sourceTree = "<group>"; };
+		858164A8493A47030F533886 /* Pods_challenge_pd_rickmorty_challenge_pd_rickmortyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_challenge_pd_rickmorty_challenge_pd_rickmortyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D4C6EB601220EADA6AC734D /* Pods-challenge-pd-rickmorty-challenge-pd-rickmortyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-challenge-pd-rickmorty-challenge-pd-rickmortyUITests.debug.xcconfig"; path = "Target Support Files/Pods-challenge-pd-rickmorty-challenge-pd-rickmortyUITests/Pods-challenge-pd-rickmorty-challenge-pd-rickmortyUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		DE190401859333F9A784AF2B /* Pods_challenge_pd_rickmortyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_challenge_pd_rickmortyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE78D61B2B25AC565FB62ED2 /* Pods-challenge-pd-rickmortyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-challenge-pd-rickmortyTests.release.xcconfig"; path = "Target Support Files/Pods-challenge-pd-rickmortyTests/Pods-challenge-pd-rickmortyTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6DCA23222E1C43CB4418980 /* Pods_challenge_pd_rickmorty.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83532F8A1BD63002400A5752 /* Pods_challenge_pd_rickmortyTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2E41A56BBC626BF99BEA836 /* Pods_challenge_pd_rickmorty_challenge_pd_rickmortyUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +114,8 @@
 				59472DC426C29CD100670DA4 /* challenge-pd-rickmortyTests */,
 				59472DCF26C29CD100670DA4 /* challenge-pd-rickmortyUITests */,
 				59472DAC26C29CCC00670DA4 /* Products */,
+				DBB03CB0C1DB407B48538D4B /* Pods */,
+				EC194B40513DBB984D49B735 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,6 +139,7 @@
 				59472DAE26C29CCC00670DA4 /* AppDelegate.swift */,
 				59472DB026C29CCC00670DA4 /* SceneDelegate.swift */,
 				59472DB226C29CCC00670DA4 /* ViewController.swift */,
+				597F208C26C42464004F82AD /* api */,
 				59472DE026C37B7D00670DA4 /* model */,
 			);
 			path = "challenge-pd-rickmorty";
@@ -147,6 +173,40 @@
 			path = model;
 			sourceTree = "<group>";
 		};
+		597F208C26C42464004F82AD /* api */ = {
+			isa = PBXGroup;
+			children = (
+				597F208D26C42482004F82AD /* APIManager.swift */,
+				597F208F26C42522004F82AD /* CharacterAPIManager.swift */,
+				597F209126C4352D004F82AD /* LocationAPIManager.swift */,
+				597F209326C43944004F82AD /* AssetsAPIManager.swift */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
+		DBB03CB0C1DB407B48538D4B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				19D922D33D565EA30E1FC9A7 /* Pods-challenge-pd-rickmorty.debug.xcconfig */,
+				25C98D0CEAF681D53239DB1C /* Pods-challenge-pd-rickmorty.release.xcconfig */,
+				9D4C6EB601220EADA6AC734D /* Pods-challenge-pd-rickmorty-challenge-pd-rickmortyUITests.debug.xcconfig */,
+				015F2003A20BFA741F1DC070 /* Pods-challenge-pd-rickmorty-challenge-pd-rickmortyUITests.release.xcconfig */,
+				334ECCBE7A95E9E31510B886 /* Pods-challenge-pd-rickmortyTests.debug.xcconfig */,
+				DE78D61B2B25AC565FB62ED2 /* Pods-challenge-pd-rickmortyTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		EC194B40513DBB984D49B735 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3F584B2F2B942D8CFAD3E8F8 /* Pods_challenge_pd_rickmorty.framework */,
+				858164A8493A47030F533886 /* Pods_challenge_pd_rickmorty_challenge_pd_rickmortyUITests.framework */,
+				DE190401859333F9A784AF2B /* Pods_challenge_pd_rickmortyTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -154,11 +214,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 59472DD526C29CD100670DA4 /* Build configuration list for PBXNativeTarget "challenge-pd-rickmorty" */;
 			buildPhases = (
+				E61B6AEF8A7D5A1FCCC2322E /* [CP] Check Pods Manifest.lock */,
 				59472DDE26C29D5200670DA4 /* Lint Code */,
 				59472DA726C29CCC00670DA4 /* Sources */,
 				59472DA826C29CCC00670DA4 /* Frameworks */,
 				59472DA926C29CCC00670DA4 /* Resources */,
 				59472DDF26C29EC200670DA4 /* Increase Build Number */,
+				4842CCE58C9FFC1894E11C3C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -173,6 +235,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 59472DD826C29CD100670DA4 /* Build configuration list for PBXNativeTarget "challenge-pd-rickmortyTests" */;
 			buildPhases = (
+				B2AB696BCD99F179A9B16DDE /* [CP] Check Pods Manifest.lock */,
 				59472DBD26C29CD100670DA4 /* Sources */,
 				59472DBE26C29CD100670DA4 /* Frameworks */,
 				59472DBF26C29CD100670DA4 /* Resources */,
@@ -191,9 +254,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 59472DDB26C29CD100670DA4 /* Build configuration list for PBXNativeTarget "challenge-pd-rickmortyUITests" */;
 			buildPhases = (
+				705C19D96CFE85189958C31B /* [CP] Check Pods Manifest.lock */,
 				59472DC826C29CD100670DA4 /* Sources */,
 				59472DC926C29CD100670DA4 /* Frameworks */,
 				59472DCA26C29CD100670DA4 /* Resources */,
+				8997CB3AB16D122D4121496C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -275,6 +340,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4842CCE58C9FFC1894E11C3C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-challenge-pd-rickmorty/Pods-challenge-pd-rickmorty-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-challenge-pd-rickmorty/Pods-challenge-pd-rickmorty-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-challenge-pd-rickmorty/Pods-challenge-pd-rickmorty-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		59472DDE26C29D5200670DA4 /* Lint Code */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -311,6 +393,89 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
 		};
+		705C19D96CFE85189958C31B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-challenge-pd-rickmorty-challenge-pd-rickmortyUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8997CB3AB16D122D4121496C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-challenge-pd-rickmorty-challenge-pd-rickmortyUITests/Pods-challenge-pd-rickmorty-challenge-pd-rickmortyUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-challenge-pd-rickmorty-challenge-pd-rickmortyUITests/Pods-challenge-pd-rickmorty-challenge-pd-rickmortyUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-challenge-pd-rickmorty-challenge-pd-rickmortyUITests/Pods-challenge-pd-rickmorty-challenge-pd-rickmortyUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2AB696BCD99F179A9B16DDE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-challenge-pd-rickmortyTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E61B6AEF8A7D5A1FCCC2322E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-challenge-pd-rickmorty-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -318,10 +483,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				597F209426C43944004F82AD /* AssetsAPIManager.swift in Sources */,
 				59472DB326C29CCC00670DA4 /* ViewController.swift in Sources */,
+				597F209226C4352D004F82AD /* LocationAPIManager.swift in Sources */,
 				59472DAF26C29CCC00670DA4 /* AppDelegate.swift in Sources */,
+				597F209026C42522004F82AD /* CharacterAPIManager.swift in Sources */,
 				59472DE526C37F0F00670DA4 /* Location.swift in Sources */,
 				59472DB126C29CCC00670DA4 /* SceneDelegate.swift in Sources */,
+				597F208E26C42482004F82AD /* APIManager.swift in Sources */,
 				59472DE226C37BA100670DA4 /* Character.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,6 +552,7 @@
 		59472DD326C29CD100670DA4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -444,6 +614,7 @@
 		59472DD426C29CD100670DA4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -498,7 +669,9 @@
 		};
 		59472DD626C29CD100670DA4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19D922D33D565EA30E1FC9A7 /* Pods-challenge-pd-rickmorty.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -519,7 +692,9 @@
 		};
 		59472DD726C29CD100670DA4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25C98D0CEAF681D53239DB1C /* Pods-challenge-pd-rickmorty.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -540,8 +715,9 @@
 		};
 		59472DD926C29CD100670DA4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 334ECCBE7A95E9E31510B886 /* Pods-challenge-pd-rickmortyTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RPU3Q63CJK;
@@ -562,8 +738,9 @@
 		};
 		59472DDA26C29CD100670DA4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE78D61B2B25AC565FB62ED2 /* Pods-challenge-pd-rickmortyTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RPU3Q63CJK;
@@ -584,8 +761,9 @@
 		};
 		59472DDC26C29CD100670DA4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D4C6EB601220EADA6AC734D /* Pods-challenge-pd-rickmorty-challenge-pd-rickmortyUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RPU3Q63CJK;
 				INFOPLIST_FILE = "challenge-pd-rickmortyUITests/Info.plist";
@@ -604,8 +782,9 @@
 		};
 		59472DDD26C29CD100670DA4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 015F2003A20BFA741F1DC070 /* Pods-challenge-pd-rickmorty-challenge-pd-rickmortyUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RPU3Q63CJK;
 				INFOPLIST_FILE = "challenge-pd-rickmortyUITests/Info.plist";
