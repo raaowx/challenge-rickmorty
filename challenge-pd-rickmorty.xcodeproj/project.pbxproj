@@ -13,8 +13,13 @@
 		59472DB626C29CCC00670DA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59472DB426C29CCC00670DA4 /* Main.storyboard */; };
 		59472DB826C29CD000670DA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59472DB726C29CD000670DA4 /* Assets.xcassets */; };
 		59472DBB26C29CD000670DA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59472DB926C29CD000670DA4 /* LaunchScreen.storyboard */; };
-		59472DC626C29CD100670DA4 /* ChallengePDRickMortyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59472DC526C29CD100670DA4 /* ChallengePDRickMortyTests.swift */; };
-		59472DD126C29CD100670DA4 /* ChallengePDRickMortyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59472DD026C29CD100670DA4 /* ChallengePDRickMortyUITests.swift */; };
+		59472DC626C29CD100670DA4 /* CharacterUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59472DC526C29CD100670DA4 /* CharacterUnitTest.swift */; };
+		59472DD126C29CD100670DA4 /* UIUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59472DD026C29CD100670DA4 /* UIUnitTest.swift */; };
+		59472DE226C37BA100670DA4 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59472DE126C37BA100670DA4 /* Character.swift */; };
+		59472DE326C37BA100670DA4 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59472DE126C37BA100670DA4 /* Character.swift */; };
+		59472DE526C37F0F00670DA4 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59472DE426C37F0F00670DA4 /* Location.swift */; };
+		59472DE626C37F0F00670DA4 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59472DE426C37F0F00670DA4 /* Location.swift */; };
+		59472DE926C41C0C00670DA4 /* LocationUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59472DE726C41C0C00670DA4 /* LocationUnitTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,11 +49,14 @@
 		59472DBA26C29CD000670DA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		59472DBC26C29CD000670DA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		59472DC126C29CD100670DA4 /* challenge-pd-rickmortyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "challenge-pd-rickmortyTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		59472DC526C29CD100670DA4 /* ChallengePDRickMortyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengePDRickMortyTests.swift; sourceTree = "<group>"; };
+		59472DC526C29CD100670DA4 /* CharacterUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterUnitTest.swift; sourceTree = "<group>"; };
 		59472DC726C29CD100670DA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		59472DCC26C29CD100670DA4 /* challenge-pd-rickmortyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "challenge-pd-rickmortyUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		59472DD026C29CD100670DA4 /* ChallengePDRickMortyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengePDRickMortyUITests.swift; sourceTree = "<group>"; };
+		59472DD026C29CD100670DA4 /* UIUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUnitTest.swift; sourceTree = "<group>"; };
 		59472DD226C29CD100670DA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		59472DE126C37BA100670DA4 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		59472DE426C37F0F00670DA4 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		59472DE726C41C0C00670DA4 /* LocationUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUnitTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +107,14 @@
 		59472DAD26C29CCC00670DA4 /* challenge-pd-rickmorty */ = {
 			isa = PBXGroup;
 			children = (
+				59472DBC26C29CD000670DA4 /* Info.plist */,
+				59472DB726C29CD000670DA4 /* Assets.xcassets */,
+				59472DB926C29CD000670DA4 /* LaunchScreen.storyboard */,
+				59472DB426C29CCC00670DA4 /* Main.storyboard */,
 				59472DAE26C29CCC00670DA4 /* AppDelegate.swift */,
 				59472DB026C29CCC00670DA4 /* SceneDelegate.swift */,
 				59472DB226C29CCC00670DA4 /* ViewController.swift */,
-				59472DB426C29CCC00670DA4 /* Main.storyboard */,
-				59472DB726C29CD000670DA4 /* Assets.xcassets */,
-				59472DB926C29CD000670DA4 /* LaunchScreen.storyboard */,
-				59472DBC26C29CD000670DA4 /* Info.plist */,
+				59472DE026C37B7D00670DA4 /* model */,
 			);
 			path = "challenge-pd-rickmorty";
 			sourceTree = "<group>";
@@ -113,8 +122,9 @@
 		59472DC426C29CD100670DA4 /* challenge-pd-rickmortyTests */ = {
 			isa = PBXGroup;
 			children = (
-				59472DC526C29CD100670DA4 /* ChallengePDRickMortyTests.swift */,
 				59472DC726C29CD100670DA4 /* Info.plist */,
+				59472DC526C29CD100670DA4 /* CharacterUnitTest.swift */,
+				59472DE726C41C0C00670DA4 /* LocationUnitTest.swift */,
 			);
 			path = "challenge-pd-rickmortyTests";
 			sourceTree = "<group>";
@@ -122,10 +132,19 @@
 		59472DCF26C29CD100670DA4 /* challenge-pd-rickmortyUITests */ = {
 			isa = PBXGroup;
 			children = (
-				59472DD026C29CD100670DA4 /* ChallengePDRickMortyUITests.swift */,
 				59472DD226C29CD100670DA4 /* Info.plist */,
+				59472DD026C29CD100670DA4 /* UIUnitTest.swift */,
 			);
 			path = "challenge-pd-rickmortyUITests";
+			sourceTree = "<group>";
+		};
+		59472DE026C37B7D00670DA4 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				59472DE126C37BA100670DA4 /* Character.swift */,
+				59472DE426C37F0F00670DA4 /* Location.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,7 +320,9 @@
 			files = (
 				59472DB326C29CCC00670DA4 /* ViewController.swift in Sources */,
 				59472DAF26C29CCC00670DA4 /* AppDelegate.swift in Sources */,
+				59472DE526C37F0F00670DA4 /* Location.swift in Sources */,
 				59472DB126C29CCC00670DA4 /* SceneDelegate.swift in Sources */,
+				59472DE226C37BA100670DA4 /* Character.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,7 +330,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59472DC626C29CD100670DA4 /* ChallengePDRickMortyTests.swift in Sources */,
+				59472DC626C29CD100670DA4 /* CharacterUnitTest.swift in Sources */,
+				59472DE626C37F0F00670DA4 /* Location.swift in Sources */,
+				59472DE926C41C0C00670DA4 /* LocationUnitTest.swift in Sources */,
+				59472DE326C37BA100670DA4 /* Character.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,7 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59472DD126C29CD100670DA4 /* ChallengePDRickMortyUITests.swift in Sources */,
+				59472DD126C29CD100670DA4 /* UIUnitTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
