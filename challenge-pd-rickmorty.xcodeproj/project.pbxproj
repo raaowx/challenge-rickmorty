@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		59472DAF26C29CCC00670DA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59472DAE26C29CCC00670DA4 /* AppDelegate.swift */; };
 		59472DB126C29CCC00670DA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59472DB026C29CCC00670DA4 /* SceneDelegate.swift */; };
-		59472DB326C29CCC00670DA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59472DB226C29CCC00670DA4 /* ViewController.swift */; };
+		59472DB326C29CCC00670DA4 /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59472DB226C29CCC00670DA4 /* CharactersViewController.swift */; };
 		59472DB626C29CCC00670DA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59472DB426C29CCC00670DA4 /* Main.storyboard */; };
 		59472DB826C29CD000670DA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59472DB726C29CD000670DA4 /* Assets.xcassets */; };
 		59472DBB26C29CD000670DA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59472DB926C29CD000670DA4 /* LaunchScreen.storyboard */; };
@@ -24,6 +24,8 @@
 		597F209026C42522004F82AD /* CharacterAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597F208F26C42522004F82AD /* CharacterAPIManager.swift */; };
 		597F209226C4352D004F82AD /* LocationAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597F209126C4352D004F82AD /* LocationAPIManager.swift */; };
 		597F209426C43944004F82AD /* AssetsAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597F209326C43944004F82AD /* AssetsAPIManager.swift */; };
+		597F209726C56687004F82AD /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597F209626C56687004F82AD /* CharacterCell.swift */; };
+		597F209B26C573BC004F82AD /* CharactersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597F209A26C573BC004F82AD /* CharactersPresenter.swift */; };
 		83532F8A1BD63002400A5752 /* Pods_challenge_pd_rickmortyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE190401859333F9A784AF2B /* Pods_challenge_pd_rickmortyTests.framework */; };
 		E6DCA23222E1C43CB4418980 /* Pods_challenge_pd_rickmorty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F584B2F2B942D8CFAD3E8F8 /* Pods_challenge_pd_rickmorty.framework */; };
 		F2E41A56BBC626BF99BEA836 /* Pods_challenge_pd_rickmorty_challenge_pd_rickmortyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 858164A8493A47030F533886 /* Pods_challenge_pd_rickmorty_challenge_pd_rickmortyUITests.framework */; };
@@ -55,7 +57,7 @@
 		59472DAB26C29CCC00670DA4 /* challenge-pd-rickmorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "challenge-pd-rickmorty.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		59472DAE26C29CCC00670DA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59472DB026C29CCC00670DA4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		59472DB226C29CCC00670DA4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		59472DB226C29CCC00670DA4 /* CharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewController.swift; sourceTree = "<group>"; };
 		59472DB526C29CCC00670DA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		59472DB726C29CD000670DA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		59472DBA26C29CD000670DA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -73,6 +75,8 @@
 		597F208F26C42522004F82AD /* CharacterAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAPIManager.swift; sourceTree = "<group>"; };
 		597F209126C4352D004F82AD /* LocationAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAPIManager.swift; sourceTree = "<group>"; };
 		597F209326C43944004F82AD /* AssetsAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsAPIManager.swift; sourceTree = "<group>"; };
+		597F209626C56687004F82AD /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
+		597F209A26C573BC004F82AD /* CharactersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersPresenter.swift; sourceTree = "<group>"; };
 		858164A8493A47030F533886 /* Pods_challenge_pd_rickmorty_challenge_pd_rickmortyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_challenge_pd_rickmorty_challenge_pd_rickmortyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D4C6EB601220EADA6AC734D /* Pods-challenge-pd-rickmorty-challenge-pd-rickmortyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-challenge-pd-rickmorty-challenge-pd-rickmortyUITests.debug.xcconfig"; path = "Target Support Files/Pods-challenge-pd-rickmorty-challenge-pd-rickmortyUITests/Pods-challenge-pd-rickmorty-challenge-pd-rickmortyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DE190401859333F9A784AF2B /* Pods_challenge_pd_rickmortyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_challenge_pd_rickmortyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,9 +142,11 @@
 				59472DB426C29CCC00670DA4 /* Main.storyboard */,
 				59472DAE26C29CCC00670DA4 /* AppDelegate.swift */,
 				59472DB026C29CCC00670DA4 /* SceneDelegate.swift */,
-				59472DB226C29CCC00670DA4 /* ViewController.swift */,
 				597F208C26C42464004F82AD /* api */,
+				597F209526C5665B004F82AD /* cells */,
+				597F209826C5738C004F82AD /* controllers */,
 				59472DE026C37B7D00670DA4 /* model */,
+				597F209926C57393004F82AD /* presenters */,
 			);
 			path = "challenge-pd-rickmorty";
 			sourceTree = "<group>";
@@ -182,6 +188,30 @@
 				597F209326C43944004F82AD /* AssetsAPIManager.swift */,
 			);
 			path = api;
+			sourceTree = "<group>";
+		};
+		597F209526C5665B004F82AD /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				597F209626C56687004F82AD /* CharacterCell.swift */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		597F209826C5738C004F82AD /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				59472DB226C29CCC00670DA4 /* CharactersViewController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		597F209926C57393004F82AD /* presenters */ = {
+			isa = PBXGroup;
+			children = (
+				597F209A26C573BC004F82AD /* CharactersPresenter.swift */,
+			);
+			path = presenters;
 			sourceTree = "<group>";
 		};
 		DBB03CB0C1DB407B48538D4B /* Pods */ = {
@@ -484,11 +514,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				597F209426C43944004F82AD /* AssetsAPIManager.swift in Sources */,
-				59472DB326C29CCC00670DA4 /* ViewController.swift in Sources */,
+				59472DB326C29CCC00670DA4 /* CharactersViewController.swift in Sources */,
 				597F209226C4352D004F82AD /* LocationAPIManager.swift in Sources */,
 				59472DAF26C29CCC00670DA4 /* AppDelegate.swift in Sources */,
 				597F209026C42522004F82AD /* CharacterAPIManager.swift in Sources */,
+				597F209726C56687004F82AD /* CharacterCell.swift in Sources */,
 				59472DE526C37F0F00670DA4 /* Location.swift in Sources */,
+				597F209B26C573BC004F82AD /* CharactersPresenter.swift in Sources */,
 				59472DB126C29CCC00670DA4 /* SceneDelegate.swift in Sources */,
 				597F208E26C42482004F82AD /* APIManager.swift in Sources */,
 				59472DE226C37BA100670DA4 /* Character.swift in Sources */,
