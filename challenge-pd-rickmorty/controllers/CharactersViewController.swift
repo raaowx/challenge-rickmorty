@@ -22,7 +22,7 @@ class CharactersViewController: UIViewController {
     refreshControl.attributedTitle = NSAttributedString(
       string: "Looking for Rick & Morty",
       attributes: [
-        .font: UIFont.systemFont(ofSize: 24, weight: .semibold)
+        .font: UIFont.systemFont(ofSize: 21, weight: .semibold)
       ])
     refreshControl.addTarget(self, action: #selector(reloadFullCharacterList), for: .valueChanged)
     charactersTV.addSubview(refreshControl)
@@ -37,16 +37,16 @@ class CharactersViewController: UIViewController {
   }
 
   @objc func reloadFullCharacterList() {
-    characters.removeAll()
-    charactersTV.reloadData()
     page = 1
     presenter?.retreiveCharacters(forPage: page)
   }
 
   func programaticallyReloadFullCharacterList() {
+    characters.removeAll()
     refreshControl.beginRefreshing()
+    charactersTV.reloadData()
     if charactersTV.contentOffset.y >= 0 {
-      UIView.animate(withDuration: 0.25, animations: {
+      UIView.animate(withDuration: 0.3, animations: {
         self.charactersTV.contentOffset = CGPoint(x: 0.0, y: -self.refreshControl.frame.size.height)
       }, completion: { _ in
         self.reloadFullCharacterList()
@@ -59,10 +59,10 @@ class CharactersViewController: UIViewController {
 extension CharactersViewController: CharactersDelegate {
   func reloadCharacterList(with characters: [Character]) {
     self.characters = characters
-    charactersTV.reloadData()
     if refreshControl.isRefreshing {
       refreshControl.endRefreshing()
     }
+    charactersTV.reloadData()
   }
 
   func showListFetchError() {
