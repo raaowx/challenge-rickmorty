@@ -182,18 +182,35 @@
                                     <constraint firstItem="4LG-KJ-MfZ" firstAttribute="top" secondItem="IJV-Ie-9qA" secondAttribute="bottom" id="p6H-Y7-f2O"/>
                                 </constraints>
                             </stackView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VGz-jd-lg7">
+                                <rect key="frame" x="348" y="804" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="VGz-jd-lg7" secondAttribute="height" multiplier="1:1" id="882-mq-ZKo"/>
+                                    <constraint firstAttribute="height" constant="50" id="I2Q-70-Ggv"/>
+                                </constraints>
+                                <color key="tintColor" name="cpdrm-blue-yonder"/>
+                                <state key="normal" image="chevron.up.circle.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="50" scale="large" weight="semibold"/>
+                                </state>
+                                <connections>
+                                    <action selector="scrollToTop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kRf-jE-5lJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="cpdrm-turquoise-green"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VGz-jd-lg7" secondAttribute="trailing" constant="16" id="4aq-3r-RGQ"/>
                             <constraint firstItem="m3i-4N-3m0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7yu-Pq-GvA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="m3i-4N-3m0" secondAttribute="trailing" id="Hkn-pI-vcD"/>
                             <constraint firstItem="m3i-4N-3m0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="V4a-y9-tXv"/>
                             <constraint firstAttribute="bottom" secondItem="m3i-4N-3m0" secondAttribute="bottom" id="b3b-Dx-pw6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="VGz-jd-lg7" secondAttribute="bottom" constant="8" id="fKR-iw-yFQ"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="charactersTV" destination="4LG-KJ-MfZ" id="CuM-LM-mUc"/>
+                        <outlet property="scrollToTopB" destination="VGz-jd-lg7" id="5mo-5E-jfs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -202,6 +219,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.up.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="questionmark.circle" catalog="system" width="128" height="121"/>
         <namedColor name="cpdrm-blue-yonder">
@@ -217,7 +235,7 @@
             <color red="0.36500000953674316" green="0.31799998879432678" blue="0.47499999403953552" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="cpdrm-turquoise-green">
-            <color red="0.57300001382827759" green="0.78799998760223389" blue="0.6940000057220459" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.5725490196078431" green="0.78823529411764703" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -9,6 +9,7 @@ import UIKit
 
 class CharactersViewController: UIViewController {
   @IBOutlet weak var charactersTV: UITableView!
+  @IBOutlet weak var scrollToTopB: UIButton!
   static let prefetchLimit = 7
   var refreshControl = UIRefreshControl()
   var characters: [Character] = []
@@ -29,6 +30,10 @@ class CharactersViewController: UIViewController {
     charactersTV.prefetchDataSource = self
     charactersTV.delegate = self
     programaticallyReloadFullCharacterList()
+  }
+
+  @IBAction func scrollToTop(_ sender: UIButton) {
+    charactersTV.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
   }
 
   @objc func reloadFullCharacterList() {
@@ -98,6 +103,22 @@ extension CharactersViewController: UITableViewDataSource, UITableViewDataSource
       CharactersViewController.prefetchLimit >= (characters.count - lastIndexPath.item) {
       page += 1
       presenter?.retreiveCharacters(forPage: page)
+    }
+  }
+
+  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    if indexPath.item == 0 {
+      UIView.animate(withDuration: 0.3) {
+        self.scrollToTopB.isHidden = true
+      }
+    }
+  }
+
+  func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    if indexPath.item == 0 {
+      UIView.animate(withDuration: 0.3) {
+        self.scrollToTopB.isHidden = false
+      }
     }
   }
 }
