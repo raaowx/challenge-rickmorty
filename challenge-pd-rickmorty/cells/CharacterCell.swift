@@ -13,17 +13,17 @@ protocol CharacterCellDelegate: AnyObject {
 }
 
 class CharacterCell: UITableViewCell {
-  @IBOutlet weak var containerV: UIView!
-  @IBOutlet weak var favoriteB: UIButton!
-  @IBOutlet weak var profilePicIV: UIImageView!
-  @IBOutlet weak var nameL: UILabel!
-  @IBOutlet weak var statusIV: UIImageView!
-  @IBOutlet weak var statusV: UIView!
-  @IBOutlet weak var locationIV: UIImageView!
-  @IBOutlet weak var locationB: UIButton!
+  @IBOutlet private weak var containerV: UIView!
+  @IBOutlet private weak var favoriteB: UIButton!
+  @IBOutlet private weak var profilePicIV: UIImageView!
+  @IBOutlet private weak var nameL: UILabel!
+  @IBOutlet private weak var statusIV: UIImageView!
+  @IBOutlet private weak var statusV: UIView!
+  @IBOutlet private weak var locationIV: UIImageView!
+  @IBOutlet private weak var locationB: UIButton!
   static let cellIdentifier = "characterCell"
-  private var character: Character?
   weak var delegate: CharacterCellDelegate?
+  private var character: Character?
 
   @IBAction func showLocationInfo(_ sender: UIButton) {
     guard let character = self.character else { return }

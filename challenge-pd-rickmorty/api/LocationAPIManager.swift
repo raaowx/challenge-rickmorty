@@ -20,13 +20,12 @@ class LocationAPIManager: APIManager {
   }
 
   /**
-    Get location definition for a given id.
-    - parameter id: Location unique identifier
+    Get location definition for a given url.
+    - parameter url: Location url
     - parameter onCompletion: Closure to execute when request is completed successfully
     - parameter onError: Closure to execute when request fails
   */
-  static func getLocation(_ id: Int, onCompletion: @escaping CompletionHandler, onError: @escaping ErrorHandler) {
-    let url = "\(APIManager.BaseURL)\(Endpoints.location.rawValue)/\(id)"
+  static func getLocation(_ url: URL, onCompletion: @escaping CompletionHandler, onError: @escaping ErrorHandler) {
     AF.request(
       url,
       method: Endpoints.location.method

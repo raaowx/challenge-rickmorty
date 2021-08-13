@@ -8,6 +8,10 @@
 import Foundation
 
 struct Location: Codable {
+  /**
+    NOTE: We don't need to apply `private(set)` protection level
+    because these constant properties are already in `read-only` mode.
+  */
   let id: Int?
   let name: String
   let type: String?

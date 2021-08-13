@@ -10,6 +10,17 @@ import UIKit
 class CharactersViewController: UIViewController {
   @IBOutlet weak var charactersTV: UITableView!
   @IBOutlet weak var scrollToTopB: UIButton!
+  @IBOutlet weak var locationInfoOverlayV: UIView!
+  @IBOutlet weak var locationInfoContainerV: UIView!
+  @IBOutlet weak var locationInfoHeaderV: UIView!
+  @IBOutlet weak var locCharacterNameL: UILabel!
+  @IBOutlet weak var locationLoadingAIV: UIActivityIndicatorView!
+  @IBOutlet weak var locationInfoV: UIView!
+  @IBOutlet weak var locNameL: UILabel!
+  @IBOutlet weak var locTypeL: UILabel!
+  @IBOutlet weak var locDimensionL: UILabel!
+  @IBOutlet weak var locAgeL: UILabel!
+  @IBOutlet weak var locTotalCharactersL: UILabel!
   static let prefetchLimit = 7
   var refreshControl = UIRefreshControl()
   var characters: [Character] = []
@@ -19,21 +30,42 @@ class CharactersViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     presenter = CharacterPresenter(delegate: self)
-    refreshControl.attributedTitle = NSAttributedString(
-      string: "Looking for Rick & Morty",
-      attributes: [
-        .font: UIFont.systemFont(ofSize: 21, weight: .semibold)
-      ])
+    if let color = UIColor(named: "cpdrm-palatinate-purple") {
+      refreshControl.tintColor = color
+      locationInfoContainerV.layer.borderColor = color.cgColor
+    }
     refreshControl.addTarget(self, action: #selector(reloadFullCharacterList), for: .valueChanged)
     charactersTV.addSubview(refreshControl)
     charactersTV.dataSource = self
     charactersTV.prefetchDataSource = self
     charactersTV.delegate = self
     programaticallyReloadFullCharacterList()
+    locationInfoContainerV.layer.borderWidth = 1.25
+    locationInfoContainerV.layer.cornerRadius = 15
+    locationInfoContainerV.layer.shadowColor = UIColor.black.cgColor
+    locationInfoContainerV.layer.shadowOffset = CGSize(width: 2.5, height: 2.5)
+    locationInfoContainerV.layer.shadowOpacity = 0.5
+    locationInfoContainerV.layer.shadowRadius = 2.5
+    locationInfoHeaderV.layer.shadowColor = UIColor.black.cgColor
+    locationInfoHeaderV.layer.shadowOffset = CGSize(width: 1.25, height: 1.25)
+    locationInfoHeaderV.layer.shadowOpacity = 0.25
+    locationInfoHeaderV.layer.shadowRadius = 1.25
   }
 
   @IBAction func scrollToTop(_ sender: UIButton) {
     charactersTV.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+  }
+
+  @IBAction func closeLocation(_ sender: Any) {
+    locationInfoOverlayV.isHidden = true
+    locCharacterNameL.text = nil
+    locationLoadingAIV.stopAnimating()
+    locationInfoV.isHidden = true
+    locNameL.text = nil
+    locTypeL.text = nil
+    locDimensionL.text = nil
+    locAgeL.text = nil
+    locTotalCharactersL.text = nil
   }
 
   @objc func reloadFullCharacterList() {
@@ -55,7 +87,7 @@ class CharactersViewController: UIViewController {
   }
 }
 
-// MARK: - Characters Delegate
+// MARK: - Characters Presenter Delegate
 extension CharactersViewController: CharactersDelegate {
   func reloadCharacterList(with characters: [Character]) {
     self.characters = characters
@@ -65,15 +97,32 @@ extension CharactersViewController: CharactersDelegate {
     charactersTV.reloadData()
   }
 
+  func showLocationInfo(with location: Location) {
+    locNameL.text = location.name
+    locTypeL.text = location.type ?? "---"
+    locDimensionL.text = location.dimension ?? "---"
+    locAgeL.text = "\(location.created?.ageInYears ?? 0) years"
+    locTotalCharactersL.text = "\(location.residents?.count ?? 1)"
+    locationLoadingAIV.stopAnimating()
+    locationInfoV.isHidden = false
+  }
+
   func showListFetchError() {
-    // TODO: Show error
+    Alerts.showError(over: self, withError: .characterReq)
+  }
+
+  func showLocationFetchError() {
+    Alerts.showError(over: self, withError: .locationReq)
   }
 }
 
 // MARK: - Characters Cell Delegate
 extension CharactersViewController: CharacterCellDelegate {
   func showLocationInfo(_ url: URL, forCharacter name: String) {
-    print("\(#function)")
+    locCharacterNameL.text = name
+    locationLoadingAIV.startAnimating()
+    locationInfoOverlayV.isHidden = false
+    presenter?.retreiveLocation(from: url)
   }
 
   func saveAsFavorite(_ id: Int) {
