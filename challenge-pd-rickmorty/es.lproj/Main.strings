@@ -1,0 +1,75 @@
+
+/* Class = "UILabel"; text = "Status:"; ObjectID = "1Pp-Ou-FDQ"; */
+"1Pp-Ou-FDQ.text" = "Estado:";
+
+/* Class = "UILabel"; text = " "; ObjectID = "1oS-bn-RXJ"; */
+"1oS-bn-RXJ.text" = " ";
+
+/* Class = "UILabel"; text = "Species:"; ObjectID = "8RG-rZ-Ka2"; */
+"8RG-rZ-Ka2.text" = "Especie:";
+
+/* Class = "UILabel"; text = "Total characters here:"; ObjectID = "93i-uU-Bfb"; */
+"93i-uU-Bfb.text" = "Total personajes:";
+
+/* Class = "UILabel"; text = "Dimension:"; ObjectID = "Cg4-JB-UCJ"; */
+"Cg4-JB-UCJ.text" = "Dimensión:";
+
+/* Class = "UILabel"; text = " "; ObjectID = "FlU-Io-wyH"; */
+"FlU-Io-wyH.text" = " ";
+
+/* Class = "UISearchBar"; placeholder = "Look for a character"; ObjectID = "GVb-vy-vTC"; */
+"GVb-vy-vTC.placeholder" = "Busca un personaje";
+
+/* Class = "UILabel"; text = " "; ObjectID = "IVA-ka-E3a"; */
+"IVA-ka-E3a.text" = " ";
+
+/* Class = "UILabel"; text = "Type:"; ObjectID = "K8g-Xj-c4L"; */
+"K8g-Xj-c4L.text" = "Tipo:";
+
+/* Class = "UILabel"; text = "Last location:"; ObjectID = "LfW-tj-Xrf"; */
+"LfW-tj-Xrf.text" = "Última ubicación:";
+
+/* Class = "UILabel"; text = " "; ObjectID = "Ln9-so-o6a"; */
+"Ln9-so-o6a.text" = " ";
+
+/* Class = "UILabel"; text = " "; ObjectID = "Ndt-2u-FEK"; */
+"Ndt-2u-FEK.text" = " ";
+
+/* Class = "UILabel"; text = "Last location:"; ObjectID = "QBA-nI-jF0"; */
+"QBA-nI-jF0.text" = "Última ubicación:";
+
+/* Class = "UILabel"; text = "Age:"; ObjectID = "QxQ-xo-hOb"; */
+"QxQ-xo-hOb.text" = "Edad:";
+
+/* Class = "UILabel"; text = " "; ObjectID = "TOF-Cb-vBH"; */
+"TOF-Cb-vBH.text" = " ";
+
+/* Class = "UILabel"; text = " "; ObjectID = "UAz-KG-jWA"; */
+"UAz-KG-jWA.text" = " ";
+
+/* Class = "UILabel"; text = " "; ObjectID = "Xf0-FU-GCp"; */
+"Xf0-FU-GCp.text" = " ";
+
+/* Class = "UILabel"; text = " "; ObjectID = "YAt-Gt-m0Y"; */
+"YAt-Gt-m0Y.text" = " ";
+
+/* Class = "UILabel"; text = " "; ObjectID = "YJR-r6-HEp"; */
+"YJR-r6-HEp.text" = " ";
+
+/* Class = "UILabel"; text = " "; ObjectID = "YKI-HM-dzH"; */
+"YKI-HM-dzH.text" = " ";
+
+/* Class = "UILabel"; text = "Species:"; ObjectID = "f6P-C4-bak"; */
+"f6P-C4-bak.text" = "Especie:";
+
+/* Class = "UILabel"; text = "Status:"; ObjectID = "iP2-H2-Hre"; */
+"iP2-H2-Hre.text" = "Status:";
+
+/* Class = "UILabel"; text = "Last location"; ObjectID = "lTK-Rk-x2G"; */
+"lTK-Rk-x2G.text" = "Última ubicación";
+
+/* Class = "UILabel"; text = " "; ObjectID = "yzn-wc-EQM"; */
+"yzn-wc-EQM.text" = " ";
+
+/* Class = "UILabel"; text = "Name:"; ObjectID = "zZR-KV-xeb"; */
+"zZR-KV-xeb.text" = "Nombre:";

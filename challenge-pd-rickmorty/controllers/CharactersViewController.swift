@@ -231,7 +231,10 @@ extension CharactersViewController: CharactersDelegate {
     locNameL.text = location.name
     locTypeL.text = location.type ?? "---"
     locDimensionL.text = location.dimension ?? "---"
-    locAgeL.text = "\(location.created?.ageInYears ?? 0) years"
+    let age = location.created?.ageInYears ?? 0
+    locAgeL.text = (age == 0) ?
+      String(format: NSLocalizedString("charactersvc-year", comment: ""), age) :
+      String(format: NSLocalizedString("charactersvc-years", comment: ""), age)
     locTotalCharactersL.text = "\(location.residents?.count ?? 1)"
     locationLoadingAIV.stopAnimating()
     UIView.animate(withDuration: 0.3) {

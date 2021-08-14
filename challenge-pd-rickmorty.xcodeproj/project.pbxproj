@@ -12,6 +12,7 @@
 		5926B59126C6DBB700CD9349 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5926B59026C6DBB700CD9349 /* Settings.swift */; };
 		5926B59226C6DD5A00CD9349 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5926B59026C6DBB700CD9349 /* Settings.swift */; };
 		5926B59426C6DD7500CD9349 /* SettingsUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5926B59326C6DD7500CD9349 /* SettingsUnitTest.swift */; };
+		5926B59826C7A2E800CD9349 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5926B59A26C7A2E800CD9349 /* Localizable.strings */; };
 		59472DAF26C29CCC00670DA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59472DAE26C29CCC00670DA4 /* AppDelegate.swift */; };
 		59472DB126C29CCC00670DA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59472DB026C29CCC00670DA4 /* SceneDelegate.swift */; };
 		59472DB326C29CCC00670DA4 /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59472DB226C29CCC00670DA4 /* CharactersViewController.swift */; };
@@ -63,6 +64,9 @@
 		5926B58E26C6C36F00CD9349 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		5926B59026C6DBB700CD9349 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		5926B59326C6DD7500CD9349 /* SettingsUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUnitTest.swift; sourceTree = "<group>"; };
+		5926B59526C7A1C500CD9349 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		5926B59926C7A2E800CD9349 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5926B59B26C7A2ED00CD9349 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		59472DAB26C29CCC00670DA4 /* challenge-pd-rickmorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "challenge-pd-rickmorty.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		59472DAE26C29CCC00670DA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59472DB026C29CCC00670DA4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -165,6 +169,7 @@
 				59472DB726C29CD000670DA4 /* Assets.xcassets */,
 				59472DB926C29CD000670DA4 /* LaunchScreen.storyboard */,
 				59472DB426C29CCC00670DA4 /* Main.storyboard */,
+				5926B59A26C7A2E800CD9349 /* Localizable.strings */,
 				59472DAE26C29CCC00670DA4 /* AppDelegate.swift */,
 				59472DB026C29CCC00670DA4 /* SceneDelegate.swift */,
 				597F208C26C42464004F82AD /* api */,
@@ -358,6 +363,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = 59472DA226C29CCB00670DA4;
 			productRefGroup = 59472DAC26C29CCC00670DA4 /* Products */;
@@ -377,6 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59472DBB26C29CD000670DA4 /* LaunchScreen.storyboard in Resources */,
+				5926B59826C7A2E800CD9349 /* Localizable.strings in Resources */,
 				59472DB826C29CD000670DA4 /* Assets.xcassets in Resources */,
 				59472DB626C29CCC00670DA4 /* Main.storyboard in Resources */,
 			);
@@ -596,10 +603,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		5926B59A26C7A2E800CD9349 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5926B59926C7A2E800CD9349 /* en */,
+				5926B59B26C7A2ED00CD9349 /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		59472DB426C29CCC00670DA4 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				59472DB526C29CCC00670DA4 /* Base */,
+				5926B59526C7A1C500CD9349 /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -620,6 +637,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -682,6 +700,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

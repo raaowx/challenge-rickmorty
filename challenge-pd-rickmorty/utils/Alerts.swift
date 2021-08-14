@@ -20,38 +20,31 @@ class Alerts: UIAlertController {
         .locationReq,
         .favoriteReq,
         .favoriteLimit:
-        return "Error"
+        return "alerts-title-error"
       }
     }
     var message: String {
       switch self {
       case .characterReq:
-        return """
-          Ups! Something goes wrong while looking for Rick & Morty.
-          Please, try again in a while.
-          """
+        return "alerts-msg-character-req"
       case .locationReq:
-        return """
-          Ups! Something goes wrong while retrieving location data.
-          Please, try again in a while.
-          """
+        return "alerts-msg-location-req"
       case .favoriteReq:
-        return """
-          Ups! Something goes wrong while retrieving your favorites information.
-          Please, try again in a while.
-          """
+        return "alerts-msg-favorite-req"
       case .favoriteLimit:
-        return """
-          Ups! You've reach the maximum amount of favorite characters.
-          Please, remove at least one favorite.
-          """
+        return "alerts-msg-favorite-limit"
       }
     }
   }
 
   static func showError(over uivc: UIViewController, withError error: CPDRMError) {
-    let close = UIAlertAction(title: "Ok", style: .default)
-    let alert = UIAlertController(title: error.title, message: error.message, preferredStyle: .alert)
+    let close = UIAlertAction(
+      title: NSLocalizedString("alerts-btn-ok", comment: ""),
+      style: .default)
+    let alert = UIAlertController(
+      title: NSLocalizedString(error.title, comment: ""),
+      message: NSLocalizedString(error.message, comment: ""),
+      preferredStyle: .alert)
     alert.addAction(close)
     uivc.present(alert, animated: true)
   }
