@@ -43,6 +43,8 @@ class CharactersViewController: UIViewController {
   var searching: Bool {
     return !(charactersSB.text?.isEmpty ?? true)
   }
+  var bigProfilePicOriginalTransform: CGAffineTransform?
+  var bigProfilePicOriginalCenter: CGPoint?
   var presenter: CharacterPresenter?
 
   override func viewDidLoad() {
@@ -128,6 +130,8 @@ class CharactersViewController: UIViewController {
     }
     bigProfilePicIV.image = favProfilePicIV.image
     bigProfilePicIV.layer.cornerRadius = bigProfilePicIV.bounds.height / 2
+    bigProfilePicOriginalTransform = bigProfilePicIV.transform
+    bigProfilePicOriginalCenter = bigProfilePicIV.center
     UIView.animate(withDuration: 0.3) {
       self.bigProfilePicOverlayV.isHidden = false
     }
@@ -147,11 +151,31 @@ class CharactersViewController: UIViewController {
     }
   }
 
+  @IBAction func zoomBigProfilePic(_ sender: UIPinchGestureRecognizer) {
+    guard let view = sender.view else { return }
+    let transform = view.transform.scaledBy(x: sender.scale, y: sender.scale)
+    view.transform = transform
+    sender.scale = 1
+  }
+
+  @IBAction func panBigProfilePic(_ sender: UIPanGestureRecognizer) {
+    guard let view = sender.view else { return }
+    let translation = sender.translation(in: view)
+    view.center = CGPoint(x: view.center.x + translation.x, y: view.center.y + translation.y)
+    sender.setTranslation(.zero, in: view)
+  }
+
   @IBAction func closeBigProfilePic(_ sender: Any) {
     UIView.animate(withDuration: 0.3, animations: {
       self.bigProfilePicOverlayV.isHidden = true
     }, completion: { _ in
       self.bigProfilePicIV.image = nil
+      if let original = self.bigProfilePicOriginalTransform {
+        self.bigProfilePicIV.transform = original
+      }
+      if let original = self.bigProfilePicOriginalCenter {
+        self.bigProfilePicIV.center = original
+      }
       if let color = UIColor(named: "cpdrm-palatinate-purple") {
         self.bigProfilePicIV.layer.borderColor = color.cgColor
       }
@@ -300,6 +324,8 @@ extension CharactersViewController: CharacterCellDelegate {
   func showProfilePic(_ image: UIImage, forCharacterId id: Int) {
     bigProfilePicIV.image = image
     bigProfilePicIV.layer.cornerRadius = bigProfilePicIV.bounds.height / 2
+    bigProfilePicOriginalTransform = bigProfilePicIV.transform
+    bigProfilePicOriginalCenter = bigProfilePicIV.center
     if let presenter = presenter,
       presenter.iAmAFavoriteCharacter(id),
       let color = UIColor(named: "cpdrm-orange-yellow-crayola") {
