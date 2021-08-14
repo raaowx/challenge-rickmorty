@@ -252,6 +252,9 @@
                                                                     <state key="normal" image="bookmark" catalog="system">
                                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="21" scale="medium" weight="regular"/>
                                                                     </state>
+                                                                    <state key="disabled" image="bookmark.fill" catalog="system">
+                                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="21" scale="medium" weight="regular"/>
+                                                                    </state>
                                                                     <connections>
                                                                         <action selector="saveAsFavorite:" destination="EJZ-Bz-sh2" eventType="touchUpInside" id="4ky-ad-imu"/>
                                                                     </connections>

@@ -61,6 +61,13 @@ class CharacterPresenter {
     })
   }
 
+  func iAmAFavoriteCharacter(_ id: Int) -> Bool {
+    guard let favorites = Settings.shared.read(option: .favorites) as? [Int] else {
+      return false
+    }
+    return favorites.contains(id)
+  }
+
   func saveFavoriteCharacter(_ id: Int) {
     guard Settings.shared.checkLimit(.favorites) else {
       delegate?.showFavoriteLimitError()

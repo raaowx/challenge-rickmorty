@@ -25,9 +25,10 @@ class CharacterCell: UITableViewCell {
   @IBOutlet private weak var locationB: UIButton!
   static let cellIdentifier = "characterCell"
   weak var delegate: CharacterCellDelegate?
+  weak var presenter: CharacterPresenter?
   private var character: Character?
 
-  @IBAction func showLocationInfo(_ sender: UIButton) {
+  @IBAction private func showLocationInfo(_ sender: UIButton) {
     guard let character = self.character else { return }
     delegate?.showLocationInfo(character.location.url, forCharacter: character.name)
   }
@@ -54,6 +55,7 @@ class CharacterCell: UITableViewCell {
     profilePicIV.layer.borderWidth = 1.0
     profilePicIV.layer.cornerRadius = profilePicIV.bounds.height / 2
     statusV.layer.cornerRadius = statusV.bounds.height / 2
+    updateFavoriteStatus()
     // Text
     nameL.text = character.name
     statusL.text = character.status.rawValue.capitalized
@@ -80,5 +82,15 @@ class CharacterCell: UITableViewCell {
     AssetsAPIManager.getImage(character.image, onCompletion: { [self] image in
       profilePicIV.image = image
     }, onError: { })
+  }
+
+  func updateFavoriteStatus() {
+    guard let presenter = presenter,
+      let character = character,
+      presenter.iAmAFavoriteCharacter(character.id) else {
+      favoriteB.isEnabled = true
+      return
+    }
+    favoriteB.isEnabled = false
   }
 }

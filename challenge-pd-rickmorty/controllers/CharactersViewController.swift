@@ -105,8 +105,14 @@ class CharactersViewController: UIViewController {
   }
 
   @IBAction func removeAsFavorite(_ sender: UIButton) {
-    if favorites.indices.contains(favoritesPC.currentPage) {
-      presenter?.removeFavoriteCharacter(favorites[favoritesPC.currentPage].id)
+    let index = favoritesPC.currentPage
+    if favorites.indices.contains(index) {
+      let id = favorites[index].id
+      presenter?.removeFavoriteCharacter(id)
+      if let row = characters.firstIndex(where: { $0.id == id }),
+        let cell = charactersTV.cellForRow(at: IndexPath(row: row, section: 0)) as? CharacterCell {
+        cell.updateFavoriteStatus()
+      }
     }
   }
 
@@ -190,6 +196,10 @@ extension CharactersViewController: CharactersDelegate {
     }, onError: { })
     favoritesPC.numberOfPages = characters.count
     favoritesPC.currentPage = 0
+    if let row = self.characters.firstIndex(where: { $0.id == first.id }),
+      let cell = charactersTV.cellForRow(at: IndexPath(row: row, section: 0)) as? CharacterCell {
+      cell.updateFavoriteStatus()
+    }
     favoritesContainerV.isHidden = false
   }
 
@@ -247,6 +257,7 @@ extension CharactersViewController: UITableViewDataSource, UITableViewDataSource
     }
     cell.setupUI(forCharacter: characters[indexPath.item])
     cell.delegate = self
+    cell.presenter = presenter
     return cell
   }
 
