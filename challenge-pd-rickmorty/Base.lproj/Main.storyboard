@@ -731,15 +731,15 @@
                                         </connections>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rv-C1-3Du">
-                                        <rect key="frame" x="322" y="298" width="35" height="35"/>
+                                        <rect key="frame" x="350" y="68" width="40" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="35" id="cbf-Av-Q8o"/>
+                                            <constraint firstAttribute="width" constant="40" id="cbf-Av-Q8o"/>
                                             <constraint firstAttribute="width" secondItem="9rv-C1-3Du" secondAttribute="height" multiplier="1:1" id="sFI-A6-6oU"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <color key="tintColor" name="cpdrm-blue-yonder"/>
                                         <state key="normal" image="xmark" catalog="system">
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="21" scale="medium" weight="regular"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40" scale="medium" weight="regular"/>
                                         </state>
                                         <connections>
                                             <action selector="closeBigProfilePic:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v0p-Tf-gPD"/>
@@ -750,10 +750,10 @@
                                 <color key="backgroundColor" name="cpdrm-turquoise-green-alpha80"/>
                                 <constraints>
                                     <constraint firstItem="b8f-DZ-R1g" firstAttribute="centerY" secondItem="KCz-lx-flD" secondAttribute="centerY" id="8Au-qH-ljI"/>
+                                    <constraint firstItem="9rv-C1-3Du" firstAttribute="top" secondItem="KCz-lx-flD" secondAttribute="topMargin" constant="16" id="OdK-AL-sTC"/>
                                     <constraint firstItem="b8f-DZ-R1g" firstAttribute="centerX" secondItem="KCz-lx-flD" secondAttribute="centerX" id="RYn-Af-2rw"/>
-                                    <constraint firstItem="9rv-C1-3Du" firstAttribute="top" secondItem="b8f-DZ-R1g" secondAttribute="top" id="Tdp-s9-Ehh"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="9rv-C1-3Du" secondAttribute="trailing" constant="16" id="aaI-Pp-wPw"/>
                                     <constraint firstItem="b8f-DZ-R1g" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KCz-lx-flD" secondAttribute="leading" constant="24" id="fnw-lY-Brs"/>
-                                    <constraint firstItem="9rv-C1-3Du" firstAttribute="trailing" secondItem="b8f-DZ-R1g" secondAttribute="trailing" id="rLh-1h-MqR"/>
                                 </constraints>
                             </view>
                         </subviews>
