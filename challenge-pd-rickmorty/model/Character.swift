@@ -36,12 +36,6 @@ struct Character: Codable {
     case genderless = "Genderless"
     case unknown
   }
-
-  static func getTSFormatter() -> DateFormatter {
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSX"
-    return dateFormatter
-  }
 }
 
 // MARK: - Helpers

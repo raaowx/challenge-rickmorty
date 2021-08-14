@@ -9,7 +9,6 @@ import UIKit
 
 class Alerts: UIAlertController {
   enum CPDRMError {
-    // Request
     case characterReq
     case locationReq
     case favoriteReq
