@@ -61,13 +61,13 @@ class CharactersViewController: UIViewController {
       favV.layer.borderColor = color.cgColor
       favProfilePicIV.layer.borderColor = color.cgColor
     }
-    favV.layer.borderWidth = 1.25
+    favV.layer.borderWidth = 2.0
     favV.layer.cornerRadius = 15
     favV.layer.shadowColor = UIColor.black.cgColor
     favV.layer.shadowOffset = CGSize(width: 2.5, height: 2.5)
     favV.layer.shadowOpacity = 0.5
     favV.layer.shadowRadius = 2.5
-    favProfilePicIV.layer.borderWidth = 1.0
+    favProfilePicIV.layer.borderWidth = 1.5
     favProfilePicIV.layer.cornerRadius = favProfilePicIV.bounds.height / 2
     favStatusV.layer.cornerRadius = favStatusV.bounds.height / 2
     locationInfoContainerV.layer.borderWidth = 1.25
@@ -111,7 +111,7 @@ class CharactersViewController: UIViewController {
     locTotalCharactersL.text = nil
   }
 
-  @IBAction func showFavLocationInfo(_ sender: UIButton) {
+  @IBAction func showFavLocationInfo(_ sender: Any) {
     if favorites.indices.contains(favoritesPC.currentPage) {
       showLocationInfo(
         favorites[favoritesPC.currentPage].location.url,
@@ -319,6 +319,13 @@ extension CharactersViewController: UITableViewDataSource, UITableViewDataSource
         self.scrollToTopB.isHidden = false
       }
     }
+  }
+
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let character = (searching) ?
+      filteredCharacters[indexPath.item] :
+      characters[indexPath.item]
+    showLocationInfo(character.location.url, forCharacter: character.name)
   }
 }
 

@@ -148,6 +148,7 @@
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" name="cpdrm-cultured"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstItem="JyE-Nt-oHo" firstAttribute="centerY" secondItem="Je3-hG-QiQ" secondAttribute="top" id="0Hg-YT-hbF"/>
                                                     <constraint firstAttribute="trailing" secondItem="a0o-41-qbB" secondAttribute="trailing" constant="8" id="1hV-1J-kgO"/>
@@ -180,6 +181,9 @@
                                                     <constraint firstItem="JyE-Nt-oHo" firstAttribute="leading" secondItem="Je3-hG-QiQ" secondAttribute="leading" id="wth-uf-kKR"/>
                                                     <constraint firstItem="ai7-MQ-2IF" firstAttribute="leading" secondItem="Je3-hG-QiQ" secondAttribute="trailing" constant="8" id="z07-Vd-eYJ"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="NA2-vx-Pt4" appends="YES" id="SxT-v2-8jK"/>
+                                                </connections>
                                             </view>
                                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="1" translatesAutoresizingMaskIntoConstraints="NO" id="eRv-zi-BbI">
                                                 <rect key="frame" x="165" y="175" width="84.5" height="16"/>
@@ -750,6 +754,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="NA2-vx-Pt4">
+                    <connections>
+                        <action selector="showFavLocationInfo:" destination="BYZ-38-t0r" id="gzi-Li-fkF"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="116.51785714285714"/>
         </scene>
