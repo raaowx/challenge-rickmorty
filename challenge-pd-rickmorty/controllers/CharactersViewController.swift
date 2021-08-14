@@ -262,6 +262,7 @@ extension CharactersViewController: CharactersDelegate {
 // MARK: - Characters Cell Delegate
 extension CharactersViewController: CharacterCellDelegate {
   func showLocationInfo(_ url: URL, forCharacter name: String) {
+    charactersSB.resignFirstResponder()
     locCharacterNameL.text = name
     locationLoadingAIV.startAnimating()
     UIView.animate(withDuration: 0.3) {
