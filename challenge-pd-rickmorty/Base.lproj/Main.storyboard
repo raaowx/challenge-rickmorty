@@ -44,7 +44,7 @@
                                                             <constraint firstAttribute="width" secondItem="JyE-Nt-oHo" secondAttribute="height" multiplier="1:1" id="GFI-7y-9Rq"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1oS-bn-RXJ">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1oS-bn-RXJ">
                                                         <rect key="frame" x="99" y="16" width="257" height="25.5"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                                         <color key="textColor" name="cpdrm-palatinate-purple"/>

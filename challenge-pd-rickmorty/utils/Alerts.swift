@@ -42,7 +42,7 @@ class Alerts: UIAlertController {
           """
       case .favoriteLimit:
         return """
-          Ups! You've reach the maximum amount of favorite character.
+          Ups! You've reach the maximum amount of favorite characters.
           Please, remove at least one favorite.
           """
       }
