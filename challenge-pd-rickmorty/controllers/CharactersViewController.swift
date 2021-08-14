@@ -85,7 +85,9 @@ class CharactersViewController: UIViewController {
   }
 
   @IBAction func closeLocation(_ sender: UIButton) {
-    locationInfoOverlayV.isHidden = true
+    UIView.animate(withDuration: 0.3) {
+      self.locationInfoOverlayV.isHidden = true
+    }
     locCharacterNameL.text = nil
     locationLoadingAIV.stopAnimating()
     locationInfoV.isHidden = true
@@ -148,27 +150,30 @@ extension CharactersViewController: CharactersDelegate {
   func reloadFavorites(with characters: [Character]) {
     favorites = characters
     guard let first = characters.first else {
-      favoritesContainerV.isHidden = true
-      favNameL.text = nil
-      favStatusL.text = nil
-      favSpeciesL.text = nil
-      favLocationB.setTitle(nil, for: .normal)
-      favStatusV.backgroundColor = .darkGray
-      favProfilePicIV.image = UIImage(
-        systemName: "person.fill",
-        withConfiguration: UIImage.SymbolConfiguration(
-          pointSize: 21.0,
-          weight: .regular,
-          scale: .medium))
-      favStatusIV.image = UIImage(
-        systemName: "questionmark.circle",
-        withConfiguration: UIImage.SymbolConfiguration(
-          pointSize: 17.0,
-          weight: .regular,
-          scale: .medium))
-      favLocationIV.image = nil
-      favoritesPC.numberOfPages = 1
-      favoritesPC.currentPage = 0
+      UIView.animate(withDuration: 0.3, animations: {
+        self.favoritesContainerV.isHidden = true
+      }, completion: { _ in
+        self.favNameL.text = nil
+        self.favStatusL.text = nil
+        self.favSpeciesL.text = nil
+        self.favLocationB.setTitle(nil, for: .normal)
+        self.favStatusV.backgroundColor = .darkGray
+        self.favProfilePicIV.image = UIImage(
+          systemName: "person.fill",
+          withConfiguration: UIImage.SymbolConfiguration(
+            pointSize: 21.0,
+            weight: .regular,
+            scale: .medium))
+        self.favStatusIV.image = UIImage(
+          systemName: "questionmark.circle",
+          withConfiguration: UIImage.SymbolConfiguration(
+            pointSize: 17.0,
+            weight: .regular,
+            scale: .medium))
+        self.favLocationIV.image = nil
+        self.favoritesPC.numberOfPages = 1
+        self.favoritesPC.currentPage = 0
+      })
       return
     }
     favNameL.text = first.name
@@ -200,7 +205,9 @@ extension CharactersViewController: CharactersDelegate {
       let cell = charactersTV.cellForRow(at: IndexPath(row: row, section: 0)) as? CharacterCell {
       cell.updateFavoriteStatus()
     }
-    favoritesContainerV.isHidden = false
+    UIView.animate(withDuration: 0.3) {
+      self.favoritesContainerV.isHidden = false
+    }
   }
 
   func completeLocationInfo(with location: Location) {
@@ -210,7 +217,9 @@ extension CharactersViewController: CharactersDelegate {
     locAgeL.text = "\(location.created?.ageInYears ?? 0) years"
     locTotalCharactersL.text = "\(location.residents?.count ?? 1)"
     locationLoadingAIV.stopAnimating()
-    locationInfoV.isHidden = false
+    UIView.animate(withDuration: 0.3) {
+      self.locationInfoV.isHidden = false
+    }
   }
 
   func showListFetchError() {
@@ -235,7 +244,9 @@ extension CharactersViewController: CharacterCellDelegate {
   func showLocationInfo(_ url: URL, forCharacter name: String) {
     locCharacterNameL.text = name
     locationLoadingAIV.startAnimating()
-    locationInfoOverlayV.isHidden = false
+    UIView.animate(withDuration: 0.3) {
+      self.locationInfoOverlayV.isHidden = false
+    }
     presenter?.retreiveLocation(from: url)
   }
 
