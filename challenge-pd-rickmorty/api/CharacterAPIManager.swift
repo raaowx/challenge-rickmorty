@@ -24,9 +24,10 @@ class CharacterAPIManager: APIManager {
     Get characters definition list for a given page.
     - parameter page: Page number
     - parameter onCompletion: Closure to execute when request is completed successfully
+    - parameter onFinish: Closure to execute when there are not more pages to download
     - parameter onError: Closure to execute when request fails
   */
-  static func getPage(_ page: Int, onCompletion: @escaping CompletionHandler, onError: @escaping ErrorHandler) {
+  static func getPage(_ page: Int, onCompletion: @escaping CompletionHandler, onFinish: @escaping FinishHandler, onError: @escaping ErrorHandler) {
     let url = "\(APIManager.BaseURL)\(Endpoints.character.rawValue)?page=\(page)"
     AF.request(
       url,
@@ -44,6 +45,10 @@ class CharacterAPIManager: APIManager {
         return
       }
       if response.statusCode != 200 {
+        if response.statusCode == 404 {
+          onFinish()
+          return
+        }
         print("\(#function):[\(#line)] => Unexpected Status Code: \(response.statusCode)")
         onError()
         return

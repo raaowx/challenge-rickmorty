@@ -38,7 +38,6 @@ class CharactersViewController: UIViewController {
   var characters: [Character] = []
   var filteredCharacters: [Character] = []
   var favorites: [Character] = []
-  var page = 1
   var searching: Bool {
     return !(charactersSB.text?.isEmpty ?? true)
   }
@@ -134,8 +133,7 @@ class CharactersViewController: UIViewController {
   }
 
   @objc func reloadFullCharacterList() {
-    page = 1
-    presenter?.retreiveCharacters(forPage: page)
+    presenter?.retreiveCharacters(fromFirstPage: true)
   }
 
   func programaticallyReloadFullCharacterList() {
@@ -302,8 +300,7 @@ extension CharactersViewController: UITableViewDataSource, UITableViewDataSource
     let sortedIndexPaths = indexPaths.sorted()
     if let lastIndexPath = sortedIndexPaths.last,
       CharactersViewController.prefetchLimit >= (characters.count - lastIndexPath.item) {
-      page += 1
-      presenter?.retreiveCharacters(forPage: page)
+      presenter?.retreiveCharacters(fromFirstPage: false)
     }
   }
 

@@ -22,19 +22,50 @@ protocol CharactersDelegate: AnyObject {
 class CharacterPresenter {
   private weak var delegate: CharactersDelegate?
   private var characters: [Character] = []
+  /**
+    NOTE: FIFO queue to handle page fetching process
+    and don't miss any page. It will contain `-1` when we reach
+    the end of the pages (a.k.a receive a `HTTP Status Code = 404`).
+  */
+  private var pagesToFetch = [1]
+  /**
+    NOTE: Handle if we're already fetching a page
+    so we don't download the same page twice or more
+    times.
+  */
+  private var downloadInCourse = false
 
   init(delegate: CharactersDelegate) {
     self.delegate = delegate
   }
 
-  func retreiveCharacters(forPage page: Int) {
-    if page == 1 {
-      characters.removeAll()
+  func retreiveCharacters(fromFirstPage firstPage: Bool) {
+    if downloadInCourse {
+      return
     }
+    if firstPage {
+      characters.removeAll()
+      pagesToFetch = [1]
+    }
+    guard let page = pagesToFetch.first else {
+      delegate?.showListFetchError()
+      return
+    }
+    if page == -1 { return }
+    downloadInCourse.toggle()
     CharacterAPIManager.getPage(page, onCompletion: { [self] newCharacters in
+      pagesToFetch.append(page + 1)
+      pagesToFetch.removeFirst()
       characters.append(contentsOf: newCharacters)
+      characters.sort { $0.id < $1.id }
+      downloadInCourse.toggle()
       delegate?.reloadCharacterList(with: characters)
-    }, onError: { [self] in
+    }, onFinish: { [self] in
+      downloadInCourse.toggle()
+      pagesToFetch = [-1]
+    },
+    onError: { [self] in
+      downloadInCourse.toggle()
       delegate?.showListFetchError()
     })
   }

@@ -224,7 +224,7 @@
                                                     <color key="backgroundColor" name="cpdrm-turquoise-green"/>
                                                 </view>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="characterCell" id="EJZ-Bz-sh2" customClass="CharacterCell" customModule="challenge_pd_rickmorty" customModuleProvider="target">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="characterCell" rowHeight="175" id="EJZ-Bz-sh2" customClass="CharacterCell" customModule="challenge_pd_rickmorty" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="24.5" width="414" height="175"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EJZ-Bz-sh2" id="rlx-Wf-Rgy">
