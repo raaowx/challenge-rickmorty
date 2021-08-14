@@ -165,6 +165,14 @@ class CharactersViewController: UIViewController {
     sender.setTranslation(.zero, in: view)
   }
 
+  @IBAction func doubleTapBigProfilePic(_ sender: UITapGestureRecognizer) {
+    if let transform = self.bigProfilePicOriginalTransform,
+      let center = self.bigProfilePicOriginalCenter {
+      self.bigProfilePicIV.transform = transform
+      self.bigProfilePicIV.center = center
+    }
+  }
+
   @IBAction func closeBigProfilePic(_ sender: Any) {
     UIView.animate(withDuration: 0.3, animations: {
       self.bigProfilePicOverlayV.isHidden = true

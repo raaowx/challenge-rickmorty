@@ -727,6 +727,7 @@
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="YuQ-1a-Mnu" appends="YES" id="v5B-nJ-cDg"/>
                                             <outletCollection property="gestureRecognizers" destination="7wf-Eh-SbK" appends="YES" id="nJX-61-H2w"/>
+                                            <outletCollection property="gestureRecognizers" destination="kF6-d8-Uwg" appends="YES" id="8TN-LC-iWR"/>
                                         </connections>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rv-C1-3Du">
@@ -826,6 +827,11 @@
                         <action selector="panBigProfilePic:" destination="BYZ-38-t0r" id="Vre-Bo-ocL"/>
                     </connections>
                 </panGestureRecognizer>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="kF6-d8-Uwg">
+                    <connections>
+                        <action selector="doubleTapBigProfilePic:" destination="BYZ-38-t0r" id="pTA-hp-dND"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="116.51785714285714"/>
         </scene>
