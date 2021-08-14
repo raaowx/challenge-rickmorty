@@ -70,7 +70,9 @@ class CharacterCell: UITableViewCell {
     case .dead:
       statusV.backgroundColor = .systemRed
       statusIV.image = UIImage(systemName: "bolt.heart", withConfiguration: configuration)
-    default: break
+    case .unknown:
+      statusV.backgroundColor = .darkGray
+      statusIV.image = UIImage(systemName: "questionmark.circle", withConfiguration: configuration)
     }
     if character.location.name == "unknown" {
       locationB.isEnabled.toggle()

@@ -203,7 +203,9 @@ extension CharactersViewController: CharactersDelegate {
     case .dead:
       favStatusV.backgroundColor = .systemRed
       favStatusIV.image = UIImage(systemName: "bolt.heart", withConfiguration: configuration)
-    default: break
+    case .unknown:
+      favStatusV.backgroundColor = .darkGray
+      favStatusIV.image = UIImage(systemName: "questionmark.circle", withConfiguration: configuration)
     }
     if first.location.name == "unknown" {
       favLocationB.isEnabled.toggle()
