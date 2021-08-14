@@ -12,10 +12,14 @@ class Alerts: UIAlertController {
     // Request
     case characterReq
     case locationReq
+    case favoriteReq
+    case favoriteLimit
     var title: String {
       switch self {
       case .characterReq,
-        .locationReq:
+        .locationReq,
+        .favoriteReq,
+        .favoriteLimit:
         return "Error"
       }
     }
@@ -30,6 +34,16 @@ class Alerts: UIAlertController {
         return """
           Ups! Something goes wrong while retrieving location data.
           Please, try again in a while.
+          """
+      case .favoriteReq:
+        return """
+          Ups! Something goes wrong while retrieving your favorites information.
+          Please, try again in a while.
+          """
+      case .favoriteLimit:
+        return """
+          Ups! You've reach the maximum amount of favorite character.
+          Please, remove at least one favorite.
           """
       }
     }

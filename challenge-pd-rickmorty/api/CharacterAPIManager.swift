@@ -113,36 +113,52 @@ class CharacterAPIManager: APIManager {
         onError()
         return
       }
-      guard let value = afdr.value else {
-        print("\(#function):[\(#line)] => Error unwrapping value")
-        onError()
-        return
-      }
-      let json = JSON(value)
-      guard let array = json.array else {
-        print("\(#function):[\(#line)] => Error unwrapping array")
-        onError()
-        return
-      }
-      var characters: [Character] = []
-      if array.isEmpty {
-        onCompletion(characters)
-      }
       let decoder = JSONDecoder()
       decoder.dateDecodingStrategy = .formatted(Character.TimestampFormatter)
-      /**
-        NOTE: By iterating over the json array we're prioritising
-        showing some characters to the user instead of an empty
-        list when we found an incomplete character definition json.
-      */
-      for obj in array {
+      var characters: [Character] = []
+      if ids.count > 1 {
+        guard let value = afdr.value else {
+          print("\(#function):[\(#line)] => Error unwrapping value")
+          onError()
+          return
+        }
+        let json = JSON(value)
+        guard let array = json.array else {
+          print("\(#function):[\(#line)] => Error unwrapping array")
+          onError()
+          return
+        }
+        if array.isEmpty {
+          onCompletion(characters)
+        }
+        /**
+          NOTE: By iterating over the json array we're prioritising
+          showing some characters to the user instead of an empty
+          list when we found an incomplete character definition json.
+        */
+        for obj in array {
+          do {
+            let data = try obj.rawData()
+            let character = try decoder.decode(Character.self, from: data)
+            characters.append(character)
+          } catch {
+            print("\(#function):[\(#line)] => Error: \(error.localizedDescription)")
+            continue
+          }
+        }
+      } else {
+        guard let data = afdr.data else {
+          print("\(#function):[\(#line)] => Error unwrapping data")
+          onError()
+          return
+        }
         do {
-          let data = try obj.rawData()
           let character = try decoder.decode(Character.self, from: data)
           characters.append(character)
         } catch {
           print("\(#function):[\(#line)] => Error: \(error.localizedDescription)")
-          continue
+          onError()
+          return
         }
       }
       onCompletion(characters)

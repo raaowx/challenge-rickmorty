@@ -8,6 +8,17 @@
 import UIKit
 
 class CharactersViewController: UIViewController {
+  @IBOutlet weak var favoritesContainerV: UIView!
+  @IBOutlet weak var favoritesPC: UIPageControl!
+  @IBOutlet weak var favV: UIView!
+  @IBOutlet weak var favProfilePicIV: UIImageView!
+  @IBOutlet weak var favStatusV: UIView!
+  @IBOutlet weak var favNameL: UILabel!
+  @IBOutlet weak var favStatusIV: UIImageView!
+  @IBOutlet weak var favStatusL: UILabel!
+  @IBOutlet weak var favSpeciesL: UILabel!
+  @IBOutlet weak var favLocationIV: UIImageView!
+  @IBOutlet weak var favLocationB: UIButton!
   @IBOutlet weak var charactersTV: UITableView!
   @IBOutlet weak var scrollToTopB: UIButton!
   @IBOutlet weak var locationInfoOverlayV: UIView!
@@ -24,22 +35,29 @@ class CharactersViewController: UIViewController {
   static let prefetchLimit = 7
   var refreshControl = UIRefreshControl()
   var characters: [Character] = []
+  var favorites: [Character] = []
   var page = 1
   var presenter: CharacterPresenter?
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    presenter = CharacterPresenter(delegate: self)
     if let color = UIColor(named: "cpdrm-palatinate-purple") {
       refreshControl.tintColor = color
       locationInfoContainerV.layer.borderColor = color.cgColor
     }
-    refreshControl.addTarget(self, action: #selector(reloadFullCharacterList), for: .valueChanged)
-    charactersTV.addSubview(refreshControl)
-    charactersTV.dataSource = self
-    charactersTV.prefetchDataSource = self
-    charactersTV.delegate = self
-    programaticallyReloadFullCharacterList()
+    if let color = UIColor(named: "cpdrm-orange-yellow-crayola") {
+      favV.layer.borderColor = color.cgColor
+      favProfilePicIV.layer.borderColor = color.cgColor
+    }
+    favV.layer.borderWidth = 1.25
+    favV.layer.cornerRadius = 15
+    favV.layer.shadowColor = UIColor.black.cgColor
+    favV.layer.shadowOffset = CGSize(width: 2.5, height: 2.5)
+    favV.layer.shadowOpacity = 0.5
+    favV.layer.shadowRadius = 2.5
+    favProfilePicIV.layer.borderWidth = 1.0
+    favProfilePicIV.layer.cornerRadius = favProfilePicIV.bounds.height / 2
+    favStatusV.layer.cornerRadius = favStatusV.bounds.height / 2
     locationInfoContainerV.layer.borderWidth = 1.25
     locationInfoContainerV.layer.cornerRadius = 15
     locationInfoContainerV.layer.shadowColor = UIColor.black.cgColor
@@ -50,13 +68,23 @@ class CharactersViewController: UIViewController {
     locationInfoHeaderV.layer.shadowOffset = CGSize(width: 1.25, height: 1.25)
     locationInfoHeaderV.layer.shadowOpacity = 0.25
     locationInfoHeaderV.layer.shadowRadius = 1.25
+    // Table View
+    refreshControl.addTarget(self, action: #selector(reloadFullCharacterList), for: .valueChanged)
+    charactersTV.addSubview(refreshControl)
+    charactersTV.dataSource = self
+    charactersTV.prefetchDataSource = self
+    charactersTV.delegate = self
+    // Presenter
+    presenter = CharacterPresenter(delegate: self)
+    presenter?.retreiveFavorites()
+    programaticallyReloadFullCharacterList()
   }
 
   @IBAction func scrollToTop(_ sender: UIButton) {
     charactersTV.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
   }
 
-  @IBAction func closeLocation(_ sender: Any) {
+  @IBAction func closeLocation(_ sender: UIButton) {
     locationInfoOverlayV.isHidden = true
     locCharacterNameL.text = nil
     locationLoadingAIV.stopAnimating()
@@ -66,6 +94,20 @@ class CharactersViewController: UIViewController {
     locDimensionL.text = nil
     locAgeL.text = nil
     locTotalCharactersL.text = nil
+  }
+
+  @IBAction func showFavLocationInfo(_ sender: UIButton) {
+    if favorites.indices.contains(favoritesPC.currentPage) {
+      showLocationInfo(
+        favorites[favoritesPC.currentPage].location.url,
+        forCharacter: favorites[favoritesPC.currentPage].name)
+    }
+  }
+
+  @IBAction func removeAsFavorite(_ sender: UIButton) {
+    if favorites.indices.contains(favoritesPC.currentPage) {
+      presenter?.removeFavoriteCharacter(favorites[favoritesPC.currentPage].id)
+    }
   }
 
   @objc func reloadFullCharacterList() {
@@ -97,7 +139,61 @@ extension CharactersViewController: CharactersDelegate {
     charactersTV.reloadData()
   }
 
-  func showLocationInfo(with location: Location) {
+  func reloadFavorites(with characters: [Character]) {
+    favorites = characters
+    guard let first = characters.first else {
+      favoritesContainerV.isHidden = true
+      favNameL.text = nil
+      favStatusL.text = nil
+      favSpeciesL.text = nil
+      favLocationB.setTitle(nil, for: .normal)
+      favStatusV.backgroundColor = .darkGray
+      favProfilePicIV.image = UIImage(
+        systemName: "person.fill",
+        withConfiguration: UIImage.SymbolConfiguration(
+          pointSize: 21.0,
+          weight: .regular,
+          scale: .medium))
+      favStatusIV.image = UIImage(
+        systemName: "questionmark.circle",
+        withConfiguration: UIImage.SymbolConfiguration(
+          pointSize: 17.0,
+          weight: .regular,
+          scale: .medium))
+      favLocationIV.image = nil
+      favoritesPC.numberOfPages = 1
+      favoritesPC.currentPage = 0
+      return
+    }
+    favNameL.text = first.name
+    favStatusL.text = first.status.rawValue.capitalized
+    favSpeciesL.text = first.species.capitalized
+    favLocationB.setTitle(first.location.name, for: .normal)
+    let configuration = UIImage.SymbolConfiguration(pointSize: 17.0, weight: .regular, scale: .medium)
+    switch first.status {
+    case .alive:
+      favStatusV.backgroundColor = .systemGreen
+      favStatusIV.image = UIImage(systemName: "heart.fill", withConfiguration: configuration)
+    case .dead:
+      favStatusV.backgroundColor = .systemRed
+      favStatusIV.image = UIImage(systemName: "bolt.heart", withConfiguration: configuration)
+    default: break
+    }
+    if first.location.name == "unknown" {
+      favLocationB.isEnabled.toggle()
+      favLocationIV.image = UIImage(systemName: "mappin.slash", withConfiguration: configuration)
+    } else {
+      favLocationIV.image = UIImage(systemName: "mappin", withConfiguration: configuration)
+    }
+    AssetsAPIManager.getImage(first.image, onCompletion: { [self] image in
+      favProfilePicIV.image = image
+    }, onError: { })
+    favoritesPC.numberOfPages = characters.count
+    favoritesPC.currentPage = 0
+    favoritesContainerV.isHidden = false
+  }
+
+  func completeLocationInfo(with location: Location) {
     locNameL.text = location.name
     locTypeL.text = location.type ?? "---"
     locDimensionL.text = location.dimension ?? "---"
@@ -114,6 +210,14 @@ extension CharactersViewController: CharactersDelegate {
   func showLocationFetchError() {
     Alerts.showError(over: self, withError: .locationReq)
   }
+
+  func showFavoriteFetchError() {
+    Alerts.showError(over: self, withError: .favoriteReq)
+  }
+
+  func showFavoriteLimitError() {
+    Alerts.showError(over: self, withError: .favoriteLimit)
+  }
 }
 
 // MARK: - Characters Cell Delegate
@@ -126,7 +230,7 @@ extension CharactersViewController: CharacterCellDelegate {
   }
 
   func saveAsFavorite(_ id: Int) {
-    print("\(#function)")
+    presenter?.saveFavoriteCharacter(id)
   }
 }
 

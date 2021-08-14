@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		5926B58726C6296400CD9349 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5926B58626C6296300CD9349 /* Alerts.swift */; };
 		5926B58F26C6C36F00CD9349 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5926B58E26C6C36F00CD9349 /* Date.swift */; };
+		5926B59126C6DBB700CD9349 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5926B59026C6DBB700CD9349 /* Settings.swift */; };
+		5926B59226C6DD5A00CD9349 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5926B59026C6DBB700CD9349 /* Settings.swift */; };
+		5926B59426C6DD7500CD9349 /* SettingsUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5926B59326C6DD7500CD9349 /* SettingsUnitTest.swift */; };
 		59472DAF26C29CCC00670DA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59472DAE26C29CCC00670DA4 /* AppDelegate.swift */; };
 		59472DB126C29CCC00670DA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59472DB026C29CCC00670DA4 /* SceneDelegate.swift */; };
 		59472DB326C29CCC00670DA4 /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59472DB226C29CCC00670DA4 /* CharactersViewController.swift */; };
@@ -58,6 +61,8 @@
 		3F584B2F2B942D8CFAD3E8F8 /* Pods_challenge_pd_rickmorty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_challenge_pd_rickmorty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5926B58626C6296300CD9349 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		5926B58E26C6C36F00CD9349 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		5926B59026C6DBB700CD9349 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		5926B59326C6DD7500CD9349 /* SettingsUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUnitTest.swift; sourceTree = "<group>"; };
 		59472DAB26C29CCC00670DA4 /* challenge-pd-rickmorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "challenge-pd-rickmorty.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		59472DAE26C29CCC00670DA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59472DB026C29CCC00670DA4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -179,6 +184,7 @@
 				59472DC726C29CD100670DA4 /* Info.plist */,
 				59472DC526C29CD100670DA4 /* CharacterUnitTest.swift */,
 				59472DE726C41C0C00670DA4 /* LocationUnitTest.swift */,
+				5926B59326C6DD7500CD9349 /* SettingsUnitTest.swift */,
 			);
 			path = "challenge-pd-rickmortyTests";
 			sourceTree = "<group>";
@@ -197,6 +203,7 @@
 			children = (
 				59472DE126C37BA100670DA4 /* Character.swift */,
 				59472DE426C37F0F00670DA4 /* Location.swift */,
+				5926B59026C6DBB700CD9349 /* Settings.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -539,6 +546,7 @@
 				59472DB326C29CCC00670DA4 /* CharactersViewController.swift in Sources */,
 				597F209226C4352D004F82AD /* LocationAPIManager.swift in Sources */,
 				59472DAF26C29CCC00670DA4 /* AppDelegate.swift in Sources */,
+				5926B59126C6DBB700CD9349 /* Settings.swift in Sources */,
 				597F209026C42522004F82AD /* CharacterAPIManager.swift in Sources */,
 				597F209726C56687004F82AD /* CharacterCell.swift in Sources */,
 				59472DE526C37F0F00670DA4 /* Location.swift in Sources */,
@@ -555,10 +563,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5926B59426C6DD7500CD9349 /* SettingsUnitTest.swift in Sources */,
 				59472DC626C29CD100670DA4 /* CharacterUnitTest.swift in Sources */,
 				59472DE626C37F0F00670DA4 /* Location.swift in Sources */,
 				59472DE926C41C0C00670DA4 /* LocationUnitTest.swift in Sources */,
 				59472DE326C37BA100670DA4 /* Character.swift in Sources */,
+				5926B59226C6DD5A00CD9349 /* Settings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
