@@ -9,6 +9,7 @@ import UIKit
 
 protocol CharacterCellDelegate: AnyObject {
   func showLocationInfo(_ url: URL, forCharacter name: String)
+  func showProfilePic(_ image: UIImage, forCharacterId id: Int)
   func saveAsFavorite(_ id: Int)
 }
 
@@ -38,6 +39,13 @@ class CharacterCell: UITableViewCell {
     delegate?.saveAsFavorite(character.id)
   }
 
+  @objc private func showProfilePic() {
+    if let character = character,
+      let image = profilePicIV.image {
+      delegate?.showProfilePic(image, forCharacterId: character.id)
+    }
+  }
+
   func setupUI(forCharacter character: Character) {
     // Character
     self.character = character
@@ -54,6 +62,8 @@ class CharacterCell: UITableViewCell {
     containerV.layer.shadowRadius = 2.5
     profilePicIV.layer.borderWidth = 1.0
     profilePicIV.layer.cornerRadius = profilePicIV.bounds.height / 2
+    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showProfilePic))
+    profilePicIV.addGestureRecognizer(tapGesture)
     statusV.layer.cornerRadius = statusV.bounds.height / 2
     updateFavoriteStatus()
     // Text

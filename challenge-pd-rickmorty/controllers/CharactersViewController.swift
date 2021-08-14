@@ -33,6 +33,8 @@ class CharactersViewController: UIViewController {
   @IBOutlet weak var locDimensionL: UILabel!
   @IBOutlet weak var locAgeL: UILabel!
   @IBOutlet weak var locTotalCharactersL: UILabel!
+  @IBOutlet weak var bigProfilePicOverlayV: UIView!
+  @IBOutlet weak var bigProfilePicIV: UIImageView!
   static let prefetchLimit = 7
   var refreshControl = UIRefreshControl()
   var characters: [Character] = []
@@ -48,6 +50,7 @@ class CharactersViewController: UIViewController {
     if let color = UIColor(named: "cpdrm-palatinate-purple") {
       refreshControl.tintColor = color
       locationInfoContainerV.layer.borderColor = color.cgColor
+      bigProfilePicIV.layer.borderColor = color.cgColor
       if let textfield = charactersSB.value(forKey: "searchField") as? UITextField {
         textfield.textColor = color
       }
@@ -79,6 +82,7 @@ class CharactersViewController: UIViewController {
     locationInfoHeaderV.layer.shadowOffset = CGSize(width: 1.25, height: 1.25)
     locationInfoHeaderV.layer.shadowOpacity = 0.25
     locationInfoHeaderV.layer.shadowRadius = 1.25
+    bigProfilePicIV.layer.borderWidth = 1.5
     // Search Bar  & Table View
     charactersSB.delegate = self
     refreshControl.addTarget(self, action: #selector(reloadFullCharacterList), for: .valueChanged)
@@ -118,6 +122,17 @@ class CharactersViewController: UIViewController {
     }
   }
 
+  @IBAction func showFavProfilePic(_ sender: UITapGestureRecognizer) {
+    if let color = UIColor(named: "cpdrm-orange-yellow-crayola") {
+      bigProfilePicIV.layer.borderColor = color.cgColor
+    }
+    bigProfilePicIV.image = favProfilePicIV.image
+    bigProfilePicIV.layer.cornerRadius = bigProfilePicIV.bounds.height / 2
+    UIView.animate(withDuration: 0.3) {
+      self.bigProfilePicOverlayV.isHidden = false
+    }
+  }
+
   @IBAction func removeAsFavorite(_ sender: UIButton) {
     let index = favoritesPC.currentPage
     if favorites.indices.contains(index) {
@@ -130,6 +145,17 @@ class CharactersViewController: UIViewController {
         cell.updateFavoriteStatus()
       }
     }
+  }
+
+  @IBAction func closeBigProfilePic(_ sender: Any) {
+    UIView.animate(withDuration: 0.3, animations: {
+      self.bigProfilePicOverlayV.isHidden = true
+    }, completion: { _ in
+      self.bigProfilePicIV.image = nil
+      if let color = UIColor(named: "cpdrm-palatinate-purple") {
+        self.bigProfilePicIV.layer.borderColor = color.cgColor
+      }
+    })
   }
 
   @objc func reloadFullCharacterList() {
@@ -269,6 +295,19 @@ extension CharactersViewController: CharacterCellDelegate {
       self.locationInfoOverlayV.isHidden = false
     }
     presenter?.retreiveLocation(from: url)
+  }
+
+  func showProfilePic(_ image: UIImage, forCharacterId id: Int) {
+    bigProfilePicIV.image = image
+    bigProfilePicIV.layer.cornerRadius = bigProfilePicIV.bounds.height / 2
+    if let presenter = presenter,
+      presenter.iAmAFavoriteCharacter(id),
+      let color = UIColor(named: "cpdrm-orange-yellow-crayola") {
+      bigProfilePicIV.layer.borderColor = color.cgColor
+    }
+    UIView.animate(withDuration: 0.3) {
+      self.bigProfilePicOverlayV.isHidden = false
+    }
   }
 
   func saveAsFavorite(_ id: Int) {
