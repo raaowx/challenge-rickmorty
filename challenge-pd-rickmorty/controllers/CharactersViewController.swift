@@ -19,6 +19,7 @@ class CharactersViewController: UIViewController {
   @IBOutlet weak var favSpeciesL: UILabel!
   @IBOutlet weak var favLocationIV: UIImageView!
   @IBOutlet weak var favLocationB: UIButton!
+  @IBOutlet weak var charactersSB: UISearchBar!
   @IBOutlet weak var charactersTV: UITableView!
   @IBOutlet weak var scrollToTopB: UIButton!
   @IBOutlet weak var locationInfoOverlayV: UIView!
@@ -35,8 +36,12 @@ class CharactersViewController: UIViewController {
   static let prefetchLimit = 7
   var refreshControl = UIRefreshControl()
   var characters: [Character] = []
+  var filteredCharacters: [Character] = []
   var favorites: [Character] = []
   var page = 1
+  var searching: Bool {
+    return !(charactersSB.text?.isEmpty ?? true)
+  }
   var presenter: CharacterPresenter?
 
   override func viewDidLoad() {
@@ -44,6 +49,13 @@ class CharactersViewController: UIViewController {
     if let color = UIColor(named: "cpdrm-palatinate-purple") {
       refreshControl.tintColor = color
       locationInfoContainerV.layer.borderColor = color.cgColor
+      if let textfield = charactersSB.value(forKey: "searchField") as? UITextField {
+        textfield.textColor = color
+      }
+    }
+    if let color = UIColor(named: "cpdrm-blue-yonder"),
+      let cancelbutton = charactersSB.value(forKey: "cancelButton") as? UIButton {
+      cancelbutton.setTitleColor(color, for: .normal)
     }
     if let color = UIColor(named: "cpdrm-orange-yellow-crayola") {
       favV.layer.borderColor = color.cgColor
@@ -68,7 +80,8 @@ class CharactersViewController: UIViewController {
     locationInfoHeaderV.layer.shadowOffset = CGSize(width: 1.25, height: 1.25)
     locationInfoHeaderV.layer.shadowOpacity = 0.25
     locationInfoHeaderV.layer.shadowRadius = 1.25
-    // Table View
+    // Search Bar  & Table View
+    charactersSB.delegate = self
     refreshControl.addTarget(self, action: #selector(reloadFullCharacterList), for: .valueChanged)
     charactersTV.addSubview(refreshControl)
     charactersTV.dataSource = self
@@ -111,7 +124,9 @@ class CharactersViewController: UIViewController {
     if favorites.indices.contains(index) {
       let id = favorites[index].id
       presenter?.removeFavoriteCharacter(id)
-      if let row = characters.firstIndex(where: { $0.id == id }),
+      if let row = (searching) ?
+        filteredCharacters.firstIndex(where: { $0.id == id }) :
+        characters.firstIndex(where: { $0.id == id }),
         let cell = charactersTV.cellForRow(at: IndexPath(row: row, section: 0)) as? CharacterCell {
         cell.updateFavoriteStatus()
       }
@@ -201,7 +216,9 @@ extension CharactersViewController: CharactersDelegate {
     }, onError: { })
     favoritesPC.numberOfPages = characters.count
     favoritesPC.currentPage = 0
-    if let row = self.characters.firstIndex(where: { $0.id == first.id }),
+    if let row = (searching) ?
+      filteredCharacters.firstIndex(where: { $0.id == first.id }) :
+      self.characters.firstIndex(where: { $0.id == first.id }),
       let cell = charactersTV.cellForRow(at: IndexPath(row: row, section: 0)) as? CharacterCell {
       cell.updateFavoriteStatus()
     }
@@ -258,6 +275,9 @@ extension CharactersViewController: CharacterCellDelegate {
 // MARK: - UITableView DataSource & Delegate
 extension CharactersViewController: UITableViewDataSource, UITableViewDataSourcePrefetching, UITableViewDelegate {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    if searching {
+      return filteredCharacters.count
+    }
     return characters.count
   }
 
@@ -266,7 +286,7 @@ extension CharactersViewController: UITableViewDataSource, UITableViewDataSource
       withIdentifier: CharacterCell.cellIdentifier) as? CharacterCell else {
       return UITableViewCell()
     }
-    cell.setupUI(forCharacter: characters[indexPath.item])
+    cell.setupUI(forCharacter: (searching) ? filteredCharacters[indexPath.item] : characters[indexPath.item])
     cell.delegate = self
     cell.presenter = presenter
     return cell
@@ -295,5 +315,29 @@ extension CharactersViewController: UITableViewDataSource, UITableViewDataSource
         self.scrollToTopB.isHidden = false
       }
     }
+  }
+}
+
+// MARK: - UISearchBar Delegate
+extension CharactersViewController: UISearchBarDelegate {
+  func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    searchBar.text?.removeAll()
+    searchBar.resignFirstResponder()
+    filteredCharacters.removeAll()
+    charactersTV.reloadData()
+  }
+
+  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    searchBar.resignFirstResponder()
+    charactersTV.reloadData()
+  }
+
+  func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    if searchText.isEmpty {
+      filteredCharacters.removeAll()
+    } else {
+      filteredCharacters = characters.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+    }
+    charactersTV.reloadData()
   }
 }
