@@ -1,0 +1,6 @@
+framework module Pods_challenge_rickmorty_challenge_rickmortyUITests {
+  umbrella header "Pods-challenge-rickmorty-challenge-rickmortyUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

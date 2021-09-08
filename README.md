@@ -20,9 +20,9 @@ This iOS app is my own response to the following mobile code challenge.
 
 For building the app you have to keep in mind two things:
 
-1. Set your own `Team` inside `Signing & Capabilities` section under `Targets > challenge-pd-rickmorty`.
-   1. This step may be also required for running unit tests and UI test. Go to `Targets > challenge-pd-rickmortyTests` and `Targets > challenge-pd-rickmortyUITests` respectively.
-2. One of the build phases is a lint code phase. To successfully perform this phase you need [SwiftLint](https://github.com/realm/SwiftLint) tool. If you don't have it installed or you don't want to install it on your computer, just delete the build phase with name `Lint Code` inside `Build Phases` section under `Targets > challenge-pd-rickmorty`.
+1. Set your own `Team` inside `Signing & Capabilities` section under `Targets > challenge-rickmorty`.
+   1. This step may be also required for running unit tests and UI test. Go to `Targets > challenge-rickmortyTests` and `Targets > challenge-rickmortyUITests` respectively.
+2. One of the build phases is a lint code phase. To successfully perform this phase you need [SwiftLint](https://github.com/realm/SwiftLint) tool. If you don't have it installed or you don't want to install it on your computer, just delete the build phase with name `Lint Code` inside `Build Phases` section under `Targets > challenge-rickmorty`.
 
 ## Code Comments
 

@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  challenge-rickmorty
+
+  Created by raaowx on 14/8/21.
+  
+*/
+// Alerts.swift
+"alerts-title-error" = "Error";
+"alerts-msg-character-req" = "¡Vaya! Algo ha ido mal mientras buscabamos a Rick y Morty. Por favor, prueba de nuevo en un rato.";
+"alerts-msg-location-req" = "¡Vaya! Algo ha ido mal mientras recuperabamos los datos de la ubicación. Por favor, prueba de nuevo en un rato.";
+"alerts-msg-favorite-req" = "¡Vaya! Algo ha ido mal mientras recuperabamos la información de tus favoritos. Por favor, prueba de nuevo en un rato.";
+"alerts-msg-favorite-limit" = "¡Vaya! Has alcanzado el límite de personajes favoritos. Por favor, quita al menos uno.";
+"alerts-btn-ok" = "Vale";
+// CharactersViewController.swift
+"charactersvc-years" = "%d años";
+"charactersvc-year" = "%d año";
